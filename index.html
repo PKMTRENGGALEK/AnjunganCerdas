@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PUSKESMAS TRENGGALEK</title>
+
+    <!-- Menggunakan Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Menggunakan Font untuk Ikon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Kustom CSS untuk Semua Efek -->
+    <style>
+      /* Efek Glow untuk Teks */
+      @keyframes glow-move {
+        0% {
+          text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0ea5e9,
+            0 0 20px #0ea5e9;
+        }
+        50% {
+          text-shadow: 0 0 10px #fff, 0 0 20px #06b6d4, 0 0 30px #06b6d4,
+            0 0 40px #06b6d4;
+        }
+        100% {
+          text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0ea5e9,
+            0 0 20px #0ea5e9;
+        }
+      }
+      .glow-text {
+        animation: glow-move 2s ease-in-out infinite;
+      }
+
+      /* --- PERBAIKAN ANIMASI --- */
+      /* 1. Keadaan awal tombol (sebelum animasi) */
+      .fade-in-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      /* 2. Keadaan tombol saat sudah terlihat di layar */
+      .fade-in-up.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Efek Glow pada Tombol Saat Hover */
+      .menu-btn {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .menu-btn:hover {
+        box-shadow: 0 10px 25px rgba(6, 182, 212, 0.4),
+          0 6px 10px rgba(6, 182, 212, 0.3);
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-800">
+    <!-- =================== KOP SURAT / HEADER =================== -->
+    <div class="container mx-auto px-6 py-6">
+      <div
+        class="flex flex-col md:flex-row items-center md:items-start text-center md:text-left"
+      >
+        <!-- Logo (Ukuran Normal, Tanpa Efek) -->
+        <img
+          src="https://pkm-trenggalek.trenggalekkab.go.id/storage/pengaturan/tDOK0fMTu1U4VcghQLL4n8aEm9qOZETILu5jwQsV.png"
+          alt="Logo Puskesmas Trenggalek"
+          class="w-30 h-30 md:w-36 md:h-36 flex-shrink-0"
+        />
+
+        <!-- Identitas Puskesmas -->
+        <div class="mt-4 md:mt-0 md:ml-8">
+          <p class="text-base md:text-lg text-blue-600 font-semibold glow-text">
+            Selalu Terdepan
+          </p>
+          <p class="text-sm text-gray-600 mt-2 max-w-2xl">
+            <i class="fas fa-map-marker-alt mr-1"></i> Jl. Dr. Wahidin No. 25,
+            Trenggalek, Kec. Trenggalek, Kabupaten Trenggalek, Jawa Timur 66311
+            <br />
+            <i class="fas fa-phone-alt mr-1"></i> (0355) 791123 |
+            <i class="fas fa-envelope mr-1"></i> info@pkm-trenggalek.go.id
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Garis Pemisah -->
+    <hr class="border-t-2 border-gray-300" />
+
+    <!-- =================== KONTEN UTAMA (MENU) =================== -->
+    <main class="container mx-auto px-6 py-12">
+      <!-- Judul Menu -->
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-800 mb-3">Menu Pelayanan</h2>
+        <p class="text-gray-600">Silakan pilih menu yang Anda butuhkan.</p>
+      </div>
+
+      <!-- Grid Menu Tombol -->
+      <div
+        id="menu-grid"
+        class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+      >
+        <!-- 1. Website Puskesmas -->
+        <a
+          href="https://pkm-trenggalek.trenggalekkab.go.id/"
+          target="_blank"
+          class="menu-btn fade-in-up group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 px-4 rounded-lg transform hover:scale-110 text-center"
+        >
+          <i class="fas fa-globe text-2xl mb-2 block"></i>
+          Website Puskesmas
+        </a>
+
+        <!-- 2. Antrian Online -->
+        <a
+          href="#"
+          class="menu-btn fade-in-up group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 px-4 rounded-lg transform hover:scale-110 text-center"
+        >
+          <i class="fas fa-users-line text-2xl mb-2 block"></i>
+          Antrian Online
+        </a>
+
+        <!-- 3. Standart Pelayanan -->
+        <a
+          href="#"
+          class="menu-btn fade-in-up group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 px-4 rounded-lg transform hover:scale-110 text-center"
+        >
+          <i class="fas fa-clipboard-list text-2xl mb-2 block"></i>
+          Standart Pelayanan
+        </a>
+
+        <!-- 4. Jenis Pelayanan -->
+        <a
+          href="#"
+          class="menu-btn fade-in-up group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 px-4 rounded-lg transform hover:scale-110 text-center"
+        >
+          <i class="fas fa-notes-medical text-2xl mb-2 block"></i>
+          Jenis Pelayanan
+        </a>
+
+        <!-- 5. Alur Pelayanan -->
+        <a
+          href="#"
+          class="menu-btn fade-in-up group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 px-4 rounded-lg transform hover:scale-110 text-center"
+        >
+          <i class="fas fa-sitemap text-2xl mb-2 block"></i>
+          Alur Pelayanan
+        </a>
+
+        <!-- 6. Syarat Pelayanan -->
+        <a
+          href="#"
+          class="menu-btn fade-in-up group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 px-4 rounded-lg transform hover:scale-110 text-center"
+        >
+          <i class="fas fa-file-alt text-2xl mb-2 block"></i>
+          Syarat Pelayanan
+        </a>
+
+        <!-- 7. Petugas Pelayanan -->
+        <a
+          href="#"
+          class="menu-btn fade-in-up group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 px-4 rounded-lg transform hover:scale-110 text-center"
+        >
+          <i class="fas fa-user-nurse text-2xl mb-2 block"></i>
+          Petugas Pelayanan
+        </a>
+
+        <!-- 8. Hak & Kewajiban Pasien -->
+        <a
+          href="#"
+          class="menu-btn fade-in-up group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 px-4 rounded-lg transform hover:scale-110 text-center"
+        >
+          <i class="fas fa-balance-scale text-2xl mb-2 block"></i>
+          Hak & Kewajiban Pasien
+        </a>
+
+        <!-- 9. Maklumat Pelayanan -->
+        <a
+          href="#"
+          class="menu-btn fade-in-up group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 px-4 rounded-lg transform hover:scale-110 text-center"
+        >
+          <i class="fas fa-bullhorn text-2xl mb-2 block"></i>
+          Maklumat Pelayanan
+        </a>
+
+        <!-- 10. Video -->
+        <a
+          href="#"
+          class="menu-btn fade-in-up group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 px-4 rounded-lg transform hover:scale-110 text-center"
+        >
+          <i class="fas fa-video text-2xl mb-2 block"></i>
+          Video
+        </a>
+
+        <!-- 11. Poster/Flyer -->
+        <a
+          href="#"
+          class="menu-btn fade-in-up group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 px-4 rounded-lg transform hover:scale-110 text-center"
+        >
+          <i class="fas fa-image text-2xl mb-2 block"></i>
+          Poster/Flyer
+        </a>
+
+        <!-- 12. Inovasi -->
+        <a
+          href="#"
+          class="menu-btn fade-in-up group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 px-4 rounded-lg transform hover:scale-110 text-center"
+        >
+          <i class="fas fa-lightbulb text-2xl mb-2 block"></i>
+          Inovasi
+        </a>
+
+        <!-- 13. Skrining -->
+        <a
+          href="#"
+          class="menu-btn fade-in-up group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 px-4 rounded-lg transform hover:scale-110 text-center"
+        >
+          <i class="fas fa-user-doctor text-2xl mb-2 block"></i>
+          Skrining
+        </a>
+      </div>
+    </main>
+
+    <!-- =================== FOOTER =================== -->
+    <footer class="bg-gray-800 text-white text-center py-6 mt-16">
+      <p class="text-sm">
+        &copy; 2024 PUSKESMAS TRENGGALEK. All Rights Reserved.
+      </p>
+    </footer>
+
+    <!-- =================== TOMBOL FULLSCREEN =================== -->
+    <button
+      id="fullscreen-btn"
+      onclick="toggleFullscreen()"
+      class="z-50 fixed bottom-6 right-6 bg-white/90 hover:bg-blue-600 text-blue-900 hover:text-white p-4 rounded-full shadow-lg border border-blue-200 transition-all duration-300 transform hover:scale-110"
+      title="Aktifkan Mode Layar Penuh"
+    >
+      <i class="fas fa-expand text-xl"></i>
+    </button>
+
+    <!-- =================== JAVASCRIPT =================== -->
+    <script>
+      // --- PERBAIKAN ANIMASI DENGAN INTERSECTION OBSERVER ---
+      document.addEventListener("DOMContentLoaded", () => {
+        const menuItems = document.querySelectorAll("#menu-grid .fade-in-up");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry, index) => {
+              // Jika elemen masuk ke dalam layar
+              if (entry.isIntersecting) {
+                // Tambahkan jeda waktu untuk efek berurutan
+                setTimeout(() => {
+                  entry.target.classList.add("is-visible");
+                }, index * 50); // 50ms jeda per tombol
+
+                // Hentikan pengamatan pada elemen ini agar tidak diproses lagi
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.1, // Memicu animasi saat 10% elemen terlihat
+          }
+        );
+
+        // Mulai mengamati setiap tombol menu
+        menuItems.forEach((item) => {
+          observer.observe(item);
+        });
+      });
+
+      // --- JAVASCRIPT UNTUK FULLSCREEN ---
+      const fullscreenBtn = document.getElementById("fullscreen-btn");
+      const fullscreenIcon = fullscreenBtn.querySelector("i");
+
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          document.documentElement
+            .requestFullscreen()
+            .then(() => {
+              fullscreenIcon.classList.remove("fa-expand");
+              fullscreenIcon.classList.add("fa-compress");
+              fullscreenBtn.setAttribute(
+                "title",
+                "Keluar dari Mode Layar Penuh"
+              );
+            })
+            .catch((err) => {
+              alert(
+                `Error attempting to enable fullscreen: ${err.message} (${err.name})`
+              );
+            });
+        } else {
+          document
+            .exitFullscreen()
+            .then(() => {
+              fullscreenIcon.classList.remove("fa-compress");
+              fullscreenIcon.classList.add("fa-expand");
+              fullscreenBtn.setAttribute("title", "Aktifkan Mode Layar Penuh");
+            })
+            .catch((err) => {
+              alert(
+                `Error attempting to exit fullscreen: ${err.message} (${err.name})`
+              );
+            });
+        }
+      }
+
+      document.addEventListener("fullscreenchange", () => {
+        if (document.fullscreenElement) {
+          fullscreenIcon.classList.remove("fa-expand");
+          fullscreenIcon.classList.add("fa-compress");
+          fullscreenBtn.setAttribute("title", "Keluar dari Mode Layar Penuh");
+        } else {
+          fullscreenIcon.classList.remove("fa-compress");
+          fullscreenIcon.classList.add("fa-expand");
+          fullscreenBtn.setAttribute("title", "Aktifkan Mode Layar Penuh");
+        }
+      });
+    </script>
+  </body>
+</html>
