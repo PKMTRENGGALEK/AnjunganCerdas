@@ -48,35 +48,40 @@
         transform: translateY(0);
       }
 
-      /* Efek Glow pada Tombol Saat Hover */
+      /* Efek pada Tombol (Shadow & Hover) */
       .menu-btn {
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Tambahkan shadow permanen agar lebih "menonjol" dari background putih */
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
       }
       .menu-btn:hover {
-        box-shadow: 0 10px 25px rgba(6, 182, 212, 0.4),
-          0 6px 10px rgba(6, 182, 212, 0.3);
+        /* Efek glow saat hover yang lebih mencolok */
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        transform: translateY(-3px) scale(1.05); /* Efek hover yang lebih dinamis */
       }
     </style>
   </head>
   <body class="bg-white text-gray-800">
     <!-- =================== KOP SURAT / HEADER =================== -->
     <div class="container mx-auto px-6 py-6">
-      <div
-        class="flex flex-col md:flex-row items-center md:items-start text-center md:text-left"
-      >
-        <!-- Logo (Ukuran Normal, Tanpa Efek) -->
+      <div class="flex flex-col items-center text-center">
+        <!-- Logo (Ukuran diperbaiki, rasio asli terjaga) -->
         <img
           src="https://pkm-trenggalek.trenggalekkab.go.id/storage/pengaturan/tDOK0fMTu1U4VcghQLL4n8aEm9qOZETILu5jwQsV.png"
           alt="Logo Puskesmas Trenggalek"
-          class="w-30 h-30 md:w-36 md:h-36 flex-shrink-0"
+          class="w-40 md:w-48 h-auto mx-auto"
         />
 
         <!-- Identitas Puskesmas -->
-        <div class="mt-4 md:mt-0 md:ml-8">
+        <div class="mt-4">
           <p class="text-base md:text-lg text-blue-600 font-semibold glow-text">
-            Selalu Terdepan
+            SELAMAT DATANG DI PUSKESMAS TRENGGALEK <br />Silahkan Klik Informasi
+            yang Anda Butuhkan
           </p>
-          <p class="text-sm text-gray-600 mt-2 max-w-2xl">
+          <br />
+          <p class="text-sm text-gray-600 max-w-2xl">
             <i class="fas fa-map-marker-alt mr-1"></i> Jl. Dr. Wahidin No. 25,
             Trenggalek, Kec. Trenggalek, Kabupaten Trenggalek, Jawa Timur 66311
             <br />
@@ -91,14 +96,8 @@
     <hr class="border-t-2 border-gray-300" />
 
     <!-- =================== KONTEN UTAMA (MENU) =================== -->
-    <main class="container mx-auto px-6 py-12">
-      <!-- Judul Menu -->
-      <div class="text-center mb-10">
-        <h2 class="text-3xl font-bold text-gray-800 mb-3">Menu Pelayanan</h2>
-        <p class="text-gray-600">Silakan pilih menu yang Anda butuhkan.</p>
-      </div>
-
-      <!-- Grid Menu Tombol -->
+    <!-- Tambahkan padding-bottom agar tidak tertutup footer -->
+    <main class="container mx-auto px-6 py-12 pb-32">
       <div
         id="menu-grid"
         class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
@@ -107,7 +106,7 @@
         <a
           href="https://pkm-trenggalek.trenggalekkab.go.id/"
           target="_blank"
-          class="menu-btn fade-in-up group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 px-4 rounded-lg transform hover:scale-110 text-center"
+          class="menu-btn fade-in-up group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 px-4 rounded-lg text-center"
         >
           <i class="fas fa-globe text-2xl mb-2 block"></i>
           Website Puskesmas
@@ -116,7 +115,7 @@
         <!-- 2. Antrian Online -->
         <a
           href="#"
-          class="menu-btn fade-in-up group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 px-4 rounded-lg transform hover:scale-110 text-center"
+          class="menu-btn fade-in-up group bg-gradient-to-r from-green-400 to-teal-500 hover:from-green-500 hover:to-teal-600 text-white font-semibold py-4 px-4 rounded-lg text-center"
         >
           <i class="fas fa-users-line text-2xl mb-2 block"></i>
           Antrian Online
@@ -125,7 +124,7 @@
         <!-- 3. Standart Pelayanan -->
         <a
           href="#"
-          class="menu-btn fade-in-up group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 px-4 rounded-lg transform hover:scale-110 text-center"
+          class="menu-btn fade-in-up group bg-gradient-to-r from-slate-500 to-slate-700 hover:from-slate-600 hover:to-slate-800 text-white font-semibold py-4 px-4 rounded-lg text-center"
         >
           <i class="fas fa-clipboard-list text-2xl mb-2 block"></i>
           Standart Pelayanan
@@ -134,7 +133,7 @@
         <!-- 4. Jenis Pelayanan -->
         <a
           href="#"
-          class="menu-btn fade-in-up group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 px-4 rounded-lg transform hover:scale-110 text-center"
+          class="menu-btn fade-in-up group bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-white font-semibold py-4 px-4 rounded-lg text-center"
         >
           <i class="fas fa-notes-medical text-2xl mb-2 block"></i>
           Jenis Pelayanan
@@ -143,7 +142,7 @@
         <!-- 5. Alur Pelayanan -->
         <a
           href="#"
-          class="menu-btn fade-in-up group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 px-4 rounded-lg transform hover:scale-110 text-center"
+          class="menu-btn fade-in-up group bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-600 hover:to-purple-700 text-white font-semibold py-4 px-4 rounded-lg text-center"
         >
           <i class="fas fa-sitemap text-2xl mb-2 block"></i>
           Alur Pelayanan
@@ -152,7 +151,7 @@
         <!-- 6. Syarat Pelayanan -->
         <a
           href="#"
-          class="menu-btn fade-in-up group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 px-4 rounded-lg transform hover:scale-110 text-center"
+          class="menu-btn fade-in-up group bg-gradient-to-r from-indigo-500 to-blue-700 hover:from-indigo-600 hover:to-blue-800 text-white font-semibold py-4 px-4 rounded-lg text-center"
         >
           <i class="fas fa-file-alt text-2xl mb-2 block"></i>
           Syarat Pelayanan
@@ -161,7 +160,7 @@
         <!-- 7. Petugas Pelayanan -->
         <a
           href="#"
-          class="menu-btn fade-in-up group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 px-4 rounded-lg transform hover:scale-110 text-center"
+          class="menu-btn fade-in-up group bg-gradient-to-r from-pink-400 to-rose-500 hover:from-pink-500 hover:to-rose-600 text-white font-semibold py-4 px-4 rounded-lg text-center"
         >
           <i class="fas fa-user-nurse text-2xl mb-2 block"></i>
           Petugas Pelayanan
@@ -170,7 +169,7 @@
         <!-- 8. Hak & Kewajiban Pasien -->
         <a
           href="#"
-          class="menu-btn fade-in-up group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 px-4 rounded-lg transform hover:scale-110 text-center"
+          class="menu-btn fade-in-up group bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white font-semibold py-4 px-4 rounded-lg text-center"
         >
           <i class="fas fa-balance-scale text-2xl mb-2 block"></i>
           Hak & Kewajiban Pasien
@@ -179,7 +178,7 @@
         <!-- 9. Maklumat Pelayanan -->
         <a
           href="#"
-          class="menu-btn fade-in-up group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 px-4 rounded-lg transform hover:scale-110 text-center"
+          class="menu-btn fade-in-up group bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white font-semibold py-4 px-4 rounded-lg text-center"
         >
           <i class="fas fa-bullhorn text-2xl mb-2 block"></i>
           Maklumat Pelayanan
@@ -188,7 +187,7 @@
         <!-- 10. Video -->
         <a
           href="#"
-          class="menu-btn fade-in-up group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 px-4 rounded-lg transform hover:scale-110 text-center"
+          class="menu-btn fade-in-up group bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold py-4 px-4 rounded-lg text-center"
         >
           <i class="fas fa-video text-2xl mb-2 block"></i>
           Video
@@ -197,7 +196,7 @@
         <!-- 11. Poster/Flyer -->
         <a
           href="#"
-          class="menu-btn fade-in-up group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 px-4 rounded-lg transform hover:scale-110 text-center"
+          class="menu-btn fade-in-up group bg-gradient-to-r from-yellow-400 to-green-500 hover:from-yellow-500 hover:to-green-600 text-white font-semibold py-4 px-4 rounded-lg text-center"
         >
           <i class="fas fa-image text-2xl mb-2 block"></i>
           Poster/Flyer
@@ -206,7 +205,7 @@
         <!-- 12. Inovasi -->
         <a
           href="#"
-          class="menu-btn fade-in-up group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 px-4 rounded-lg transform hover:scale-110 text-center"
+          class="menu-btn fade-in-up group bg-gradient-to-r from-yellow-300 to-amber-400 hover:from-yellow-400 hover:to-amber-500 text-white font-semibold py-4 px-4 rounded-lg text-center"
         >
           <i class="fas fa-lightbulb text-2xl mb-2 block"></i>
           Inovasi
@@ -215,7 +214,7 @@
         <!-- 13. Skrining -->
         <a
           href="#"
-          class="menu-btn fade-in-up group bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-4 px-4 rounded-lg transform hover:scale-110 text-center"
+          class="menu-btn fade-in-up group bg-gradient-to-r from-sky-400 to-blue-500 hover:from-sky-500 hover:to-blue-600 text-white font-semibold py-4 px-4 rounded-lg text-center"
         >
           <i class="fas fa-user-doctor text-2xl mb-2 block"></i>
           Skrining
@@ -223,8 +222,10 @@
       </div>
     </main>
 
-    <!-- =================== FOOTER =================== -->
-    <footer class="bg-gray-800 text-white text-center py-6 mt-16">
+    <!-- =================== FOOTER (FIXED) =================== -->
+    <footer
+      class="fixed bottom-0 left-0 w-full bg-gray-800 text-white text-center py-4 z-40"
+    >
       <p class="text-sm">
         &copy; 2024 PUSKESMAS TRENGGALEK. All Rights Reserved.
       </p>
@@ -242,37 +243,28 @@
 
     <!-- =================== JAVASCRIPT =================== -->
     <script>
-      // --- PERBAIKAN ANIMASI DENGAN INTERSECTION OBSERVER ---
       document.addEventListener("DOMContentLoaded", () => {
         const menuItems = document.querySelectorAll("#menu-grid .fade-in-up");
 
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry, index) => {
-              // Jika elemen masuk ke dalam layar
               if (entry.isIntersecting) {
-                // Tambahkan jeda waktu untuk efek berurutan
                 setTimeout(() => {
                   entry.target.classList.add("is-visible");
-                }, index * 50); // 50ms jeda per tombol
-
-                // Hentikan pengamatan pada elemen ini agar tidak diproses lagi
+                }, index * 50);
                 observer.unobserve(entry.target);
               }
             });
           },
-          {
-            threshold: 0.1, // Memicu animasi saat 10% elemen terlihat
-          }
+          { threshold: 0.1 }
         );
 
-        // Mulai mengamati setiap tombol menu
         menuItems.forEach((item) => {
           observer.observe(item);
         });
       });
 
-      // --- JAVASCRIPT UNTUK FULLSCREEN ---
       const fullscreenBtn = document.getElementById("fullscreen-btn");
       const fullscreenIcon = fullscreenBtn.querySelector("i");
 
